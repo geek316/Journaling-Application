@@ -40,6 +40,17 @@ public class UserService {
         return user;
     }
 
+    public User saveNewAdminEntry(User user) {
+        try {
+            user.setPassword(passwordEncoder.encode(user.getPassword()));
+            user.setRoles(List.of("USER","ADMIN"));
+            userRepository.save(user);
+        } catch (Exception e) {
+            log.error("Exception ", e);
+        }
+        return user;
+    }
+
     public List<User> getAll() {
 
         return userRepository.findAll();
