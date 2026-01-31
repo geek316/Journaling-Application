@@ -1,0 +1,34 @@
+spring:
+  application:
+    name: Journal App
+  data:
+    mongodb:
+      uri: mongodb+srv://geek316_db_user:stZM4mfwc70ynGjz@cluster0.txg77ph.mongodb.net/?appName=Cluster0
+      database: journaldb
+      auto-index-creation: true
+  mail:
+    host: smtp.gmail.com
+    port: 587
+    username: geek316@gmail.com
+    password: ovfa qwgp pkpw awby
+    properties:
+      mail:
+        smtp:
+          auth: true
+          starttls:
+            enable: true
+          connectiontimeout: 5000
+          timeout: 5000
+          writetimeout: 5000
+    protocol: smtp
+    test-connection: true
+
+server:
+  port: 8080
+  servlet:
+    context-path: /journalTest
+
+
+weather:
+  api:
+    key: 1c43344cfd6491d60156009e6432a5ff
