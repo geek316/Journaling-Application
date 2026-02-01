@@ -25,8 +25,8 @@ public class UserScheduler {
     @Autowired
     private UserRepositoryImpl userRepository;
 
-//    @Scheduled(cron = "0 0 9 * * SUN")
-    @Scheduled(cron = "0 * * ? * *")
+    @Scheduled(cron = "0 0 9 * * SUN")
+//    @Scheduled(cron = "0 * * ? * *")
     public void fetchUsersAndSendSAMail() {
 
         log.info("Scheduler started for SentimentAnalysis");

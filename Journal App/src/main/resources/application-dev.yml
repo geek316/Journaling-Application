@@ -1,6 +1,10 @@
 spring:
   application:
     name: Journal App
+  redis:
+#    host: localhost
+#    port: 6379
+    uri: redis-cli -u redis://default:OntHXTt0lW0pwnWSJcclhyq05dEaARG9@redis-12932.crce276.ap-south-1-3.ec2.cloud.redislabs.com:12932
   data:
     mongodb:
       uri: mongodb+srv://geek316_db_user:stZM4mfwc70ynGjz@cluster0.txg77ph.mongodb.net/?appName=Cluster0
