@@ -36,3 +36,7 @@ server:
 weather:
   api:
     key: 1c43344cfd6491d60156009e6432a5ff
+
+springdoc:
+  swagger-ui:
+    path: /docs

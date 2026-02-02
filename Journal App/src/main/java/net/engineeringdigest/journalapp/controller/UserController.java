@@ -1,8 +1,10 @@
 package net.engineeringdigest.journalapp.controller;
 
+import io.swagger.v3.oas.annotations.tags.Tag;
 import lombok.extern.slf4j.Slf4j;
 import net.engineeringdigest.journalapp.api.response.WeatherResponse;
 import net.engineeringdigest.journalapp.dto.EmailDto;
+import net.engineeringdigest.journalapp.dto.UserDto;
 import net.engineeringdigest.journalapp.entity.User;
 import net.engineeringdigest.journalapp.service.EmailService;
 import net.engineeringdigest.journalapp.service.UserService;
@@ -20,6 +22,7 @@ import static java.util.Objects.nonNull;
 
 @RestController
 @RequestMapping("/users")
+@Tag(name = "User APIs", description = "Read, Update & Delete User")
 @Slf4j
 public class UserController {
 
@@ -55,12 +58,12 @@ public class UserController {
     }
 
     @PutMapping()
-    public ResponseEntity<?> updateUser(@RequestBody User user) {
+    public ResponseEntity<?> updateUser(@RequestBody UserDto userDto) {
         Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
         String userName = authentication.getName();
         User userInDb = userService.findByUserName(userName);
-        userInDb.setUserName(user.getUserName());
-        userInDb.setPassword(user.getPassword());
+        userInDb.setUserName(userDto.getUserName());
+        userInDb.setPassword(userDto.getPassword());
         userService.saveNewUserEntry(userInDb);
         return new ResponseEntity<>(HttpStatus.NO_CONTENT);
     }

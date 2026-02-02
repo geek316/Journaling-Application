@@ -23,6 +23,11 @@ public class SecurityConfigDev {
                 .authorizeHttpRequests(auth -> auth
                         .requestMatchers("/journal/**", "/users/**").authenticated()
                         .requestMatchers("/admin/**").hasRole("ADMIN")
+                        .requestMatchers(
+                                "/v3/api-docs/**",
+                                "/swagger-ui/**",
+                                "/swagger-ui.html"
+                        ).permitAll()
                         .anyRequest().permitAll()
                 )
                 .httpBasic(Customizer.withDefaults());

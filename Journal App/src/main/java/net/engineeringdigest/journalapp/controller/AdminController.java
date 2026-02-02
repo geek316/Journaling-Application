@@ -1,5 +1,6 @@
 package net.engineeringdigest.journalapp.controller;
 
+import io.swagger.v3.oas.annotations.tags.Tag;
 import net.engineeringdigest.journalapp.entity.User;
 import net.engineeringdigest.journalapp.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -11,6 +12,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/admin")
+@Tag(name = "Admin APIs", description = "Read, Update & Delete User")
 public class AdminController {
 
     @Autowired
